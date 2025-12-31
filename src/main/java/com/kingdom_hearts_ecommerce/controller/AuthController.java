@@ -1,6 +1,7 @@
 package com.kingdom_hearts_ecommerce.controller;
 
 import com.kingdom_hearts_ecommerce.model.User;
+import com.kingdom_hearts_ecommerce.security.JwtUtil;
 import com.kingdom_hearts_ecommerce.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,11 +29,12 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public boolean login(@RequestBody Map<String, String> request){
+    public ResponseEntity<?> login(@RequestBody Map<String, String> request){
         Optional<User> user = userService.searchByUserName(request.get("username"));
         if (user.isPresent() && user.get().getPassword().equals(request.get("password"))){
-            return true;
+            String token = JwtUtil.generateToken(user.get().getUsername());
+            return ResponseEntity.ok(Map.of("token", token));
         }
-        return false;
+        return ResponseEntity.status(401).body("Invalid Credentials");
     }
 }

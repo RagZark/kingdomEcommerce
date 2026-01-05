@@ -35,3 +35,4 @@ build/
 application-local.properties
 application-prod.properties
 application.properties
+src/main/resources/application.properties

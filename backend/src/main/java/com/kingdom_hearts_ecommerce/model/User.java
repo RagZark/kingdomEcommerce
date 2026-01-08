@@ -4,9 +4,8 @@ package com.kingdom_hearts_ecommerce.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users"
+@Table(name = "users")
 
-)
 public class User {
 
     @Id
@@ -16,12 +15,19 @@ public class User {
     @Column(unique = true, nullable = false)
     private String username;
 
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private boolean isAdmin = false;
+
     @Column(nullable = false)
     private String password;
 
     public User(){}
 
-    public User(String username, String password){
+    public User(String email, String username, String password){
+        this.email=email;
         this.username=username;
         this.password=password;
     }
@@ -33,6 +39,10 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
 
     public String getUsername() {
         return username;
@@ -48,5 +58,9 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }

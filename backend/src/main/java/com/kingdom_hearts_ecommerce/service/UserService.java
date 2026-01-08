@@ -19,13 +19,17 @@ public class UserService {
         this.passwordEncoder= new BCryptPasswordEncoder();
     }
 
-    public User registerUser(String username, String password){
+    public User registerUser(String email, String username, String password){
         String passwordEncrypted = passwordEncoder.encode(password);
-        User user = new User(username, passwordEncrypted);
+        User user = new User(email, username, passwordEncrypted);
         return userRepository.save(user);
     }
 
-    public Optional<User> searchByUserName(String username){
+    public Optional<User> searchByUsername(String username){
         return userRepository.findByUsername(username);
+    }
+
+    public Optional<User> searchByEmail(String email){
+        return userRepository.findByEmail(email);
     }
 }

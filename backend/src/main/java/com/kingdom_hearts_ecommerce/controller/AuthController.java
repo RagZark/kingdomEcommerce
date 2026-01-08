@@ -24,13 +24,13 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody Map<String, String> request){
-        User user = userService.registerUser(request.get("username"), "password");
+        User user = userService.registerUser(request.get("email"), "username", "password");
         return ResponseEntity.ok(user);
     }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> request){
-        Optional<User> user = userService.searchByUserName(request.get("username"));
+        Optional<User> user = userService.searchByUsername(request.get("username"));
         if (user.isPresent() && user.get().getPassword().equals(request.get("password"))){
             String token = JwtUtil.generateToken(user.get().getUsername());
             return ResponseEntity.ok(Map.of("token", token));

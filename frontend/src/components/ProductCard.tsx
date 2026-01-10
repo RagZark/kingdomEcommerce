@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 //import { listProducts } from "../services/ProductsService";
 
-function ProductCard() {
+interface ProductCardProps{
+  children: import("react").ReactNode;
+}
+
+export default function ProductCard({children}: ProductCardProps) {
   //const [products, setProducts] = useState([]);
 
   const products = [
@@ -43,6 +47,4 @@ function ProductCard() {
       ))}
     </>
   );
-}
-
-export default ProductCard;
+};

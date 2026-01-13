@@ -1,7 +1,13 @@
 import React from "react";
+import ProductCard from "./ProductCard.js";
 
-function MarketPlace() {
-  return <div></div>;
+export default function MarketPlace() {
+  return (
+    <div className="flex w-full min-h-screen content-between items-center">
+      <ProductCard />
+      <ProductCard />
+      <ProductCard />
+      <ProductCard />
+    </div>
+  );
 }
-
-export default MarketPlace;

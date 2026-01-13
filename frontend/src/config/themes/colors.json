@@ -1,0 +1,17 @@
+{
+    "destiny_islands":{
+        "green": "#00FF00",
+        "yellow": "#ffdb5b",
+        "sand": "#FFFACD",
+        "white": "#ffffff",
+        "blue": "#00BFFF"
+    },
+    "hearthless":{
+        "black": "#000000",
+        "very_dark_blue": "#290950",	
+        "deep_rich_shade_of_purple": "#402090",	
+        "dark_shaded_purple": "#3a1378",	
+        "purple": "#623cae"
+    }
+}
+

@@ -1,11 +1,11 @@
 import HeaderComponent from "./components/HeaderComponent.js";
-import ProductCard from "./components/ProductCard.js";
+import MarketPlace from "./components/MarketPlace.js";
 
 function App() {
   return (
     <>
       <HeaderComponent />
-      <ProductCard />
+      <MarketPlace />
     </>
   );
 }
